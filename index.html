@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Pessoal (CV Online)</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!--
+    Parte do cabeçalho do site   
+    -->
+    <div id="header">
+
+        <div id="logo">
+            <a href="index.html">Lucas Fagundes</a>
+        </div>
+
+        <div id="menu">
+            <a href="/sobre_mim.html">Sobre Mim</a>
+            <a href="/educacao.html">Minha Educação</a>
+            <a href="/portfolio.html">Portfólio</a>
+            <a href="#contato">Contato</a>
+        </div>
+
+     </div>
+
+    <div id="content">
+    <!--
+    Parte de introdução do site   
+    -->
+    <section id="principal">
+
+        <img id="pen_icon" src="/images/caneta.svg" alt="caneta">
+
+        <h1 id="titulo_principal">Um Desenvolvedor em Formação</h1>
+        
+        <p id="para1">Olá, me chamo Lucas e sou um Designer Gráfico com mais de 4,5 anos de experiência em design digital e impresso, especializado em criação de landing pages, mídias sociais, identidade visual e branding. Habilidade comprovada em liderar equipes de marketing e gerenciamento de projetos de design.</p>
+        <br>
+        <p id="para2">Atualmente estou no processo de migração de carreira, e tenho como objetivo alcançar um futuro trabalhando e vivendo apenas da programação, tendo liberdade geográfica e estabilidade financeira nesse mundo de tecnologia tão vasto!</p>
+        <br>
+        <div id="habilidades">
+            <ul>
+             <h2>Minhas Habilidades</h2>
+             <li>
+                 Ferramentas de Design: Figma, Adobe
+                 Photoshop, Illustrator, Premiere Pro,
+             </li>
+             <li>
+                 Desenvolvimento no-code: Elementor,
+                  Wordpress, Noções Básicas de HTML e CSS
+              </li>
+              <li>
+                  Gerenciamento de Mídias Sociais: Criação e
+                  gestão de conteúdo
+              </li>
+              <li>
+                  Edição de Vídeo: Premiere Pro, DaVinci Resolve
+              </li>
+              <li>
+                  UI Design e UX: Desenvolvimento de
+                  interfaces intuitivas e responsivas
+              </li>           
+            </ul>
+        </div>    
+    </section>
+
+
+    <!--
+    Parte de links no corpo do site   
+    -->
+    <div id="parte_inferior">
+       
+        <h2>Alguns links que podem interessar você:</h2>
+            <nav>
+                <ul id="secao_links">
+                    <li>
+                        <a href="">Saiba mais sobre mim</a>
+                    </li>
+                    <li>
+                        <a href="">Um pouco sobre minha educação</a>
+                    </li>
+                    <li>
+                        <a href="">Trabalhos que já realizei</a>
+                    </li>
+                    <li>
+                        <a href="#contato">Vamos conversar mais?</a>
+                    </li>
+                </ul>
+            </nav>
+
+    </div>
+
+    <!--
+    Formulário
+    -->
+    <div id="contato" class="overlay">
+        <div class="modal">
+         <a href="#" class="fechar" aria-label="Fechar formulário">&times;</a>
+        <h2>Entre em Contato</h2>
+  
+        <!-- Envia para #contato-ok para exibir a mensagem de sucesso (sem JS) -->
+      <form id="contatoForm" class="form_coluna" action="#sucesso" method="get">
+        <input type="text" id="nome" name="nome" placeholder="Seu Nome" required>
+        <input type="email" id="email" name="email" placeholder="Seu Email" required>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Sua Mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!--
+  Mensagem de sucesso
+  -->
+  <div id="sucesso" class="overlay">
+    <div class="modal">
+      <a href="#" class="fechar" aria-label="Fechar mensagem">&times;</a>
+      <h2>Obrigado!</h2>
+      <p style="margin: 12px 0 20px; text-align:center;">
+        Em breve entrarei em contato! Muito obrigado.
+      </p>
+      <div style="display:flex; justify-content:center;">
+        <a href="#" class="btn_fechar">Fechar</a>
+      </div>
+    </div>
+  </div>
+  
+    
+    <div id="footer">
+        Todos os direitos reservados - Lucas Fagundes
+    </div>
+
+    <script>
+        // Dados do formulário
+        const btnContatoMenu   = document.getElementById("btnContatoMenu");
+        const btnContatoSecao  = document.getElementById("btnContatoSecao");
+        const formContato      = document.getElementById("formContato");
+        const contatoForm      = document.getElementById("contatoForm");
+        const mensagemSucesso  = document.getElementById("mensagemSucesso");
+      
+       
+        function mostrarFormulario(e) {
+          e.preventDefault();
+          if (!formContato) return;
+          formContato.style.display = "block";
+          formContato.scrollIntoView({ behavior: "smooth" });
+        }
+      
+        // Liga os cliques
+        if (btnContatoMenu)  btnContatoMenu.addEventListener("click", mostrarFormulario);
+        if (btnContatoSecao) btnContatoSecao.addEventListener("click", mostrarFormulario);
+      
+        // Envio do formulário
+        if (contatoForm && mensagemSucesso) {
+          contatoForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            contatoForm.style.display = "none";
+            mensagemSucesso.style.display = "block";
+          });
+        }
+      </script>
+      
+</body>
+</html>
